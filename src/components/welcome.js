@@ -1,6 +1,8 @@
 import React from 'react'
 import Toggler from './toggler';
 import MailBox from './mailbox'
+import Notification from './notification'
+
 
 class Welcome extends React.Component {
   constructor(props) {
@@ -24,12 +26,14 @@ class Welcome extends React.Component {
 
     return (
       <div>
+        <Notification></Notification>
         <h2>{title}</h2>
         <Toggler
           handler={this.toggleHandler}
           state={this.state.isToggled}>
         </Toggler>
         <MailBox state={this.state.isToggled}></MailBox>
+
       </div>
     )
   }
