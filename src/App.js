@@ -3,7 +3,7 @@ import './App.css';
 import Welcome from './components/welcome';
 import List from './components/list'
 import TodoForm from './components/todo-form'
-import NavBar from './components/layouts/navbar'
+import ButtonAppBar from './components/layouts/navbar'
 
 
 let todos = [
@@ -18,13 +18,18 @@ let todos = [
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { todos }
+    this.state = { todos: todos, user: false }
     this.addEventHandler = this.addEventHandler.bind(this)
+    this.loginHandler = this.loginHandler.bind(this)
   }
 
   addEventHandler(item) {
     todos.push({ id: todos.length + 1, event: item })
-    this.setState(todos)
+    this.setState({ todos: todos, user: this.state.user })
+  }
+
+  loginHandler() {
+    this.setState({ todos: todos, user: !this.state.user })
   }
 
 
@@ -32,10 +37,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <NavBar></NavBar>
-        <Welcome name="Will"></Welcome>
+        <ButtonAppBar></ButtonAppBar>
+        <Welcome name="Will" user={true} ></Welcome>
         <List list={this.state.todos}></List>
-        <TodoForm addTodo={this.addEventHandler}></TodoForm>
+        <TodoForm addTodo={() => { return this.addEventHandler }}></TodoForm>
       </div>
     );
   }

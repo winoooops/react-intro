@@ -7,7 +7,7 @@ import Notification from './notification'
 class Welcome extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { isToggled: true }
+    this.state = { isToggled: this.props.user }
     this.toggleHandler = this.toggleHandler.bind(this)
   }
 
