@@ -29,7 +29,7 @@ class App extends React.Component {
   }
 
   loginHandler() {
-    this.setState({ todos: todos, user: !this.state.user })
+    this.setState({ todos: this.state.todos, user: !this.state.user })
   }
 
 
@@ -38,7 +38,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <ButtonAppBar></ButtonAppBar>
-        <Welcome name="Will" user={true} ></Welcome>
+        <Welcome name="Will"></Welcome>
         <List list={this.state.todos}></List>
         <TodoForm addTodo={() => { return this.addEventHandler }}></TodoForm>
       </div>

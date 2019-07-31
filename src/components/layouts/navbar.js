@@ -7,6 +7,17 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 export default class ButtonAppBar extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { isLogged: false }
+    this.addLoginHandler = this.addLoginHandler.bind(this)
+  }
+
+
+  addLoginHandler() {
+    this.setState({ isLogged: !this.state.isLogged })
+  }
+
   render() {
     return (
       <div style={{ flexGrow: 1 }}>
@@ -18,7 +29,9 @@ export default class ButtonAppBar extends React.Component {
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               News
             </Typography>
-            <Button color="inherit" onClick={() => { }}>Login</Button>
+            <Button color="inherit" onClick={this.addLoginHandler}>
+              {this.state.isLogged ? 'LogOut' : 'LogIn'}
+            </Button>
           </Toolbar>
         </AppBar>
       </div>
