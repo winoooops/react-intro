@@ -9,13 +9,12 @@ import MenuIcon from '@material-ui/icons/Menu';
 export default class ButtonAppBar extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { isLogged: false }
     this.addLoginHandler = this.addLoginHandler.bind(this)
   }
 
 
   addLoginHandler() {
-    this.setState({ isLogged: !this.state.isLogged })
+    this.props.toggle()
   }
 
   render() {
@@ -30,7 +29,7 @@ export default class ButtonAppBar extends React.Component {
               News
             </Typography>
             <Button color="inherit" onClick={this.addLoginHandler}>
-              {this.state.isLogged ? 'LogOut' : 'LogIn'}
+              {this.props.isLogged ? 'LogOut' : 'LogIn'}
             </Button>
           </Toolbar>
         </AppBar>
