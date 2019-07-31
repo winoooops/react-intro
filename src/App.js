@@ -3,6 +3,8 @@ import './App.css';
 import Welcome from './components/welcome';
 import List from './components/list'
 import TodoForm from './components/todo-form'
+import NavBar from './components/layouts/navbar'
+
 
 let todos = [
   { id: 1, event: "Angular Review" },
@@ -30,6 +32,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <NavBar></NavBar>
         <Welcome name="Will"></Welcome>
         <List list={this.state.todos}></List>
         <TodoForm addTodo={this.addEventHandler}></TodoForm>
