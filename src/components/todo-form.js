@@ -13,7 +13,9 @@ class TodoForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault()
     alert(`Your todo list has been updated with item: ` + this.state.event)
+    this.props.addTodo(this.state.event)
   }
 
 
