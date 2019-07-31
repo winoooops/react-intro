@@ -23,7 +23,7 @@ class Welcome extends React.Component {
 
     return (
       <div>
-        {title}
+        <h2>{title}</h2>
         <Toggler
           handler={this.toggleHandler}
           state={this.state.isToggled}>
